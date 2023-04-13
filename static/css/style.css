@@ -1,0 +1,57 @@
+/* SET BODY STYLES
+-----------------------*/
+body {
+    background-image: url(/static/images/park1920x1080.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* SET LOGO ROTATION RIGHT
+---------------------------*/
+.logo {
+  animation: spin-right 8s linear infinite;
+}
+
+@keyframes spin-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* HEADER
+---------- */
+header {
+    font-size: 2rem;
+}
+
+.active-link {
+    border-radius: 10px;
+    font-size: 2.1rem;
+    box-shadow:  0px 3px 3px  rgba(255, 255, 255, 0.582);
+}
+
+.nav-link:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.582);
+}
+
+/* MAIN STYLES
+-------------- */
+main {
+    min-height: 75vh;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    /* background-color: rgba(0, 0, 0, 0.137); */
+}
+
+
