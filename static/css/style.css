@@ -1,3 +1,9 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  color: whitesmoke;
+}
+
 /* SET BODY STYLES
 -----------------------*/
 body {
@@ -9,7 +15,7 @@ body {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* SET LOGO ROTATION RIGHT
@@ -30,29 +36,34 @@ a {
 /* HEADER
 ---------- */
 header {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .active-link {
-    border-radius: 10px;
-    font-size: 2.1rem;
-    box-shadow:  0px 3px 3px  rgba(255, 255, 255, 0.582);
+  border-radius: 10px;
+  font-size: 2.1rem;
+  box-shadow:  0px 3px 3px  rgba(255, 255, 255, 0.582);
+  margin: 0px 5px;
 }
 
 .nav-link:hover {
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.582);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.582);
 }
 
 /* MAIN STYLES
 -------------- */
 main {
-    min-height: 75vh;
+  min-height: 75vh;
 }
 
 .hero-text {
-    font-size: 1.5rem;
-    /* background-color: rgba(0, 0, 0, 0.137); */
+  font-size: 1.5rem;
+  /* background-color: rgba(0, 0, 0, 0.137); */
 }
+
+
+
+
 
 
