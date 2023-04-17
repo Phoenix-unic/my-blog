@@ -46,7 +46,7 @@ header {
   margin: 0px 5px;
 }
 
-.nav-link:hover {
+header .nav-link:hover {
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.582);
 }
@@ -62,7 +62,13 @@ main {
   /* background-color: rgba(0, 0, 0, 0.137); */
 }
 
+.nav-tabs>.nav-link {
+  color: white;
+}
 
+.nav-tabs>.nav-link.active {
+  color: rgb(0, 60, 255);
+}
 
 
 

@@ -1,326 +1,185 @@
-{% extends 'layout.html' %} {% block title %} About {% endblock %} {% block
-active_about %}active-link{% endblock %} {% block main %}
-<div class="container p-3 bg-dark bg-opacity-75 col-lg-8 offset-2">
+{% extends 'layout.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block active_about %}
+active-link
+{% endblock %}
+
+{% block main %}
+
+<div class="container p-3 bg-dark bg-opacity-50 col-xl-8 col-lg-10 col-md-12 mx-auto">
   <div class="row my-4">
-    <div class="col-lg-4">
-      <img
-        class="w-75 d-block mx-auto"
-        src="/static/images/doc_2023-04-15_10-19-45.png"
-        alt="profile-photo"
-      />
+    <div class="col-lg-5 col-md-6">
+      <img width="300" height="300" class="rounded-circle d-block mx-auto" src="/static/images/300x300-photo.png"
+        alt="profile-photo" />
     </div>
-    <div class="col-lg-8">
-      <h1>Viktor Kachkovskyi</h1>
-      <p class="text-muted text-secondary">Python developer</p>
-      <ul class="list-unstyled mx-auto my-0 bg-white bg-opacity-10">
+    <div class="col-lg-7 col-md-6">
+      <label for="contact" class="fst-italic">Python developer</label>
+      <h1 id="contact">Viktor Kachkovskyi</h1>
+      <br>
+      <ul class="list-unstyled mx-auto my-0">
         <li>
-          <img
-            with="36"
-            height="36"
-            src="https://img.icons8.com/nolan/64/marker.png"
-            alt="Location"
-          />
+          <img with="36" height="36" src="https://img.icons8.com/nolan/64/marker.png" alt="Location" />
           <span>Ukraine, Odessa</span>
         </li>
         <li>
-          <img
-            with="36"
-            height="36"
-            src="https://img.icons8.com/nolan/64/gmail.png"
-            alt="Email"
-          />
+          <img with="36" height="36" src="https://img.icons8.com/nolan/64/gmail.png" alt="Email" />
           <span>phoenix.egoist@gmail.com</span>
         </li>
         <li>
-          <img
-            with="36"
-            height="36"
-            src="https://img.icons8.com/nolan/64/phone.png"
-            alt="Contact phone"
-          />
+          <img with="36" height="36" src="https://img.icons8.com/nolan/64/phone.png" alt="Contact phone" />
           <span>+380930620406</span>
         </li>
         <li>
-          <img
-            with="36"
-            height="36"
-            src="https://img.icons8.com/nolan/64/github.png"
-            alt="GitHub"
-          />
+          <img with="36" height="36" src="https://img.icons8.com/nolan/64/github.png" alt="GitHub" />
           <a href="https://github.com/Phoenix-unic">github.com/Phoenix-unic</a>
         </li>
       </ul>
     </div>
   </div>
   <hr />
-  <div class="row my-4">
-    <div class="card my-1 bg-secondary bg-opacity-10">
-      <h5 class="card-header">Introduction</h5>
-      <div class="card-body">
-        <h5 class="card-title">Some information about me</h5>
-        <p class="mx-4">
-          As a Python developer, I have a strong passion for coding and creating
-          innovative solutions. I am well-versed in version control systems such
-          as Git. <br />I am a collaborative team player with excellent
-          communication skills, enabling me to effectively work with
-          cross-functional teams and stakeholders to deliver high-quality
-          results. <br />I am also detail-oriented and have a strong commitment
-          to writing clean, efficient, and maintainable code.
-        </p>
-      </div>
-    </div>
+  <div class="row container">
     <div class="col-lg-4">
       <div class="card my-1 bg-secondary bg-opacity-10">
-        <h5 class="card-header">Skills</h5>
         <div class="card-body">
-          <h5 class="card-title">Some of my skills I've achieved</h5>
-          <ul class="mx-4">
+          <h5 class="card-title">Soft skills</h5>
+          <ul class="mx-2">
             <li>Clear&readable code</li>
             <li>Patience (my strong one)</li>
-            <li>HTML/CSS</li>
-            <li>Bootstrap</li>
+            <li>99% stress resistance</li>
+            <li>Problem-solver</li>
+            <li>Team player</li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Hard skills</h5>
+          <ul class="mx-2">
             <li>Python</li>
+            <li>HTML/CSS</li>
+            <li>Bootstrap</li>            
+            <li>Flask</li>
+            <li>Flask-SQLAlchemy</li>
+            <li>Git</li>
             <li>Beautiful soup 4</li>
             <li>Selenium</li>
-            <li>Flask</li>
-            <li>Git</li>
             <li>SQL</li>
             <li>SQLite</li>
-            <li>Flask-SQLAlchemy</li>
           </ul>
         </div>
       </div>
     </div>
-    <div id="other" class="col-lg-8">
-      <div class="card my-1 bg-secondary bg-opacity-10">
-        <h5 class="card-header">Awards and Achievements</h5>
-        <div class="card-body">
-          <h5 class="card-title">Some of my learning certificates:</h5>
-          <div
-            id="carouselExampleControls"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  src="/static/images/certificates/beginners.png"
-                  class="d-block w-75 mx-auto"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="/static/images/certificates/advanced.png"
-                  class="d-block w-75 mx-auto"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="/static/images/certificates/python.png"
-                  class="d-block w-75 mx-auto"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="/static/images/certificates/scraping.png"
-                  class="d-block w-75 mx-auto"
-                  alt="..."
-                />
-              </div>
+    <div class="col-lg-8">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+            type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+            Info
+          </button>
+          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+            role="tab" aria-controls="nav-contact" aria-selected="false">
+            Achievements
+          </button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+          tabindex="0">
+          <div class="card my-1 bg-secondary bg-opacity-10">
+            <div class="card-body">
+              <h5 class="card-title">Some information about me:</h5>
+              <table class="table table-active">
+                <tr>
+                  <td>Birthday:</td>
+                  <td>25 September 1996</td>
+                </tr>
+                <tr>
+                  <td>Languages:</td>
+                  <td>
+                    <ul>
+                      <li>Ukrainian</li>
+                      <li>Russian</li>
+                      <li>Polish</li>
+                      <li>English</li>
+                      <li>German</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Description:</td>
+                  <td>
+                    <p class="mx-4">
+                      I'm a motivated and passionated junior Python developer.
+                      As a junior Python developer with over 1 year of experience, I take pride in writing clean and
+                      readable code. I am constantly eager to learn and improve my skills, and I approach challenges
+                      with a positive attitude. While I may not always have all the answers, I am committed to finding
+                      solutions and continuously expanding my knowledge. My determination and drive to learn make me a
+                      valuable asset to any development team.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Goal:</td>
+                  <td>
+                    <p class="mx-4">
+                      My goal is to become a professional white-hat cybersecurity expert with strong data analyst skills.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Job expectation:</td>
+                  <td>
+                    <p class="mx-4">
+                      I'm looking for a long term job, with huge amount of tasks to work on.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Salary expectation:</td>
+                  <td>
+                    <p class="mx-4">
+                      My expected salary is up from 600$
+                    </p>
+                  </td>
+                </tr>
+              </table>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr />
-<div class="container bg-dark bg-opacity-75 col-lg-6 offset-lg-3">
-  <div class="row text-center bg-black bg-opacity-25">
-    <ul class="list-unstyled mx-auto my-0">
-      <li>
-        <img
-          with="200"
-          height="200"
-          class="rounded-circle"
-          src="/static/images/default-avatar.png"
-          alt=""
-        />
-      </li>
-      <li>
-        <h1>Viktor Kachkovskyi</h1>
-      </li>
-      <li>
-        <p>Python developer</p>
-      </li>
-    </ul>
-    <hr />
-    <ul
-      class="list-unstyled d-flex justify-content-between mx-auto my-0 bg-white bg-opacity-10"
-    >
-      <li>
-        <img
-          with="36"
-          height="36"
-          src="https://img.icons8.com/nolan/64/marker.png"
-        />
-        <span>Ukraine, Odessa</span>
-      </li>
-      <li>
-        <img
-          with="36"
-          height="36"
-          src="https://img.icons8.com/nolan/64/gmail.png"
-        />
-        <span>phoenix.egoist@gmail.com</span>
-      </li>
-      <li>
-        <img
-          with="36"
-          height="36"
-          src="https://img.icons8.com/nolan/64/phone.png"
-        />
-        <span>+380930620406</span>
-      </li>
-    </ul>
-  </div>
-  <hr />
-  <div class="row">
-    <div class="card my-1 bg-secondary bg-opacity-10">
-      <h5 class="card-header">Summary/Introduction</h5>
-      <div class="card-body">
-        <h5 class="card-title">Some information about me</h5>
-        <p class="mx-4">
-          As a Python developer, I have a strong passion for coding and creating
-          innovative solutions. With year of experience in web development, I
-          have honed my skills in building robust and scalable applications
-          using Python frameworks such as Flask.
-        </p>
-        <p class="mx-4">
-          In addition to my technical expertise, I am well-versed in version
-          control systems such as Git, and I am experienced in working with
-          Agile methodologies for project management. I am a proactive learner,
-          always keeping up with the latest trends and best practices in
-          software development, and I thrive in fast-paced environments.
-        </p>
-        <p class="mx-4">
-          Apart from my technical skills, I am a collaborative team player with
-          excellent communication skills, enabling me to effectively work with
-          cross-functional teams and stakeholders to deliver high-quality
-          results. I am also detail-oriented and have a strong commitment to
-          writing clean, efficient, and maintainable code.
-        </p>
-        <p class="mx-4">
-          Overall, I am a dedicated and passionate Python developer, constantly
-          seeking new challenges and opportunities to expand my skill set. I am
-          excited about leveraging my expertise to develop innovative solutions
-          and contribute to the success of any project I work on.
-        </p>
-      </div>
-    </div>
-    <hr />
-    <div class="card my-1 bg-secondary bg-opacity-10">
-      <h5 class="card-header">Skills</h5>
-      <div class="card-body">
-        <h5 class="card-title">Some of my skills I've achieved</h5>
-        <ul class="mx-4">
-          <li>HTML/CSS</li>
-          <li>Python</li>
-          <li>Beautiful soup 4</li>
-          <li>Selenium</li>
-          <li>Flask</li>
-          <li>SQL</li>
-          <li>SQLite</li>
-          <li>SQLAlchemy</li>
-        </ul>
-      </div>
-    </div>
-    <hr />
-    <div class="card my-1 bg-secondary bg-opacity-10">
-      <h5 class="card-header">Awards and Achievements</h5>
-      <div class="card-body">
-        <h5 class="card-title">Some of my learning certificates:</h5>
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="/static/images/certificates/beginners.png"
-                class="d-block w-75 mx-auto"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="/static/images/certificates/advanced.png"
-                class="d-block w-75 mx-auto"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="/static/images/certificates/python.png"
-                class="d-block w-75 mx-auto"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="/static/images/certificates/scraping.png"
-                class="d-block w-75 mx-auto"
-                alt="..."
-              />
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+          <div class="card my-1 bg-secondary bg-opacity-10">
+            <div class="card-body">
+              <h5 class="card-title">Some of my learning certificates:</h5>
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/images/certificates/beginners.png" class="d-block w-100 mx-auto" alt="..." />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/images/certificates/advanced.png" class="d-block w-100 mx-auto" alt="..." />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/images/certificates/python.png" class="d-block w-100 mx-auto" alt="..." />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/images/certificates/scraping.png" class="d-block w-100 mx-auto" alt="..." />
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon btn btn-dark" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon btn btn-dark" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>

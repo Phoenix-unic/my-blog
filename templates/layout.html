@@ -12,48 +12,50 @@
 </head>
 
 <body>
-  <header class="col-lg-8 mx-auto p-3">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+  <header class="col-lg-10 col-md-12 mx-auto p-3">
+    <nav class="navbar navbar-expand-md ">
+      <div class="container-fluid">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src="/static/images/logo10-removebg-preview.png" class="logo mx-4" width="60" height="60"
             aria-label="Logo" />
         </a>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <a href="/" class="nav-link px-2 text-white {% block active_cover %}{% endblock %}">Home</a>
-          </li>
-          <li>
-            <a href="/about" class="nav-link px-2 text-white {% block active_about %}{% endblock %}">About</a>
-          </li>
-          <li>
-            <a href="/blog" class="nav-link px-2 text-white {% block active_blog %}{% endblock %}">Projects</a>
-          </li>
-        </ul>
-
-        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mt-2" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-            aria-label="Search" />
-        </form> -->
-
-        <div class="text-end">
-          <a href="/login">
-            <button type="button" class="btn btn-outline-light me-2">
-              Login
-            </button>
-          </a>
-          <a href="/sign-up">
-            <button type="button" class="btn btn-outline-primary text-white">
-              Sign-up
-            </button>
-          </a>
+        <button class="navbar-toggler btn-close-white fw-bold bg-white bg-opacity-50" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/" class="nav-link px-2 text-white {% block active_cover %}{% endblock %}">Cover</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link px-2 text-white {% block active_about %}{% endblock %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/projects"
+                class="nav-link px-2 text-white {% block active_projects %}{% endblock %}">Projects</a>
+            </li>
+          </ul>
+          <div class="d-flex text-end">
+            <a href="/login">
+              <button type="button" class="btn btn-outline-light me-2">
+                Login
+              </button>
+            </a>
+            <a href="/sign-up">
+              <button type="button" class="btn btn-outline-primary text-white">
+                Sign-up
+              </button>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
   </header>
   <main class="bg-black bg-opacity-25">{% block main %}{% endblock %}</main>
   <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <footer class="d-flex flex-wrap bg-dark bg-opacity-50 justify-content-between align-items-center p-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">
         <span class="mb-3 mb-md-0 text-white">© 2023 Phoenix, Inc.</span>
       </div>
