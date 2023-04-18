@@ -51,10 +51,17 @@ header .nav-link:hover {
   box-shadow: 0px 0px 5px rgba(162, 7, 252, 0.432);
 }
 
+.contact {
+  display: inline;
+  
+}
+
+
+
 /* MAIN STYLES
 -------------- */
 main {
-  min-height: 75vh;
+  min-height: 80vh;
 }
 
 .hero-text {
