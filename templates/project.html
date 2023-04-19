@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-Project
+Pass-generator
 {% endblock %}
 
 {% block active_projects %}
@@ -12,42 +12,274 @@ active-link
 
 <div class="row">
   <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-lg-4 mt-md-2 p-3 bg-dark bg-opacity-50 ">
-    <div class="container my-5">
-      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 class="display-4 fw-bold lh-1">Border hero with cropped image and shadows</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most
-            popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-          </div>
-        </div>
-        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg ">
-          <img class="rounded-lg-3" src="/static/images/park1920x1080.jpg" alt="" width="720">
-        </div>
+    <div class="row flex-lg-row-reverse text-bg-dark rounded align-items-center g-3 py-lg-5">
+      <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
+        <img src="/static/images/pass-generator/pass-generator-gui.png" class="d-block mx-lg-auto img-fluid rounded"
+          alt="password-generator" width="700" height="500" loading="lazy"
+          onclick="openModal('/static/images/pass-generator/pass-generator-gui.png')">
+      </div>
+      <div class="col-lg-4  col-md-10 col-sm-12 mx-auto">
+        <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Secure password generator</h1>
+        <p class="lead rounded">At certain moment of life, we realize that passwords like
+          '<i>1111</i>' or '<i>very.strong.password</i>'
+          are no longer secure. There are a lot of services that provides a strong passwords in a few clicks, but as a
+          programmer,
+          I decided to build a desktop app with my own hands. <br>
+          So, here is my own, pritty simple version of a password generator.</p>
+        <p>If You are interested, here is the <a href="https://github.com/Phoenix-unic/pass-generator.git"
+            target="blank">link to GitHub repo</a> with this project</p>
       </div>
     </div>
 
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="/static/images/park1920x1080.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-          height="500" loading="lazy">
-      </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most
-          popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-          extensive
-          prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+    <hr>
+    <h2>Before we've started</h2>
+    <h5>I'm going to show you the difference between my old version of the script and the version I wrote
+      before creating this app.</h5>
+    <div class="row my-lg-4 my-md-2 my-sm-1">
+      <div class="col-12">
+        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Old script</h5>
+                  <p class="card-text">The script i wrote as a home-task from one of my courses. <br> It's as simple as
+                    possible, with
+                    hardcoding all of the characters.</p>
+                </div>
+                <img src="/static/images/pass-generator/old-verison.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/pass-generator/old-verison.png')">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Here comes the new one</h5>
+                  <p class="card-text">This one i wrote following the best practicies: <br> using constants, typehints,
+                    docstrings, 'secrets'
+                    module was used instead of 'random' because of higer security level.</p>
+                </div>
+                <img src="/static/images/pass-generator/new-verison.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/pass-generator/new-verison.png')">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>
-    <div class="container col-xxl-8 px-4 border py-5">
+    <hr>
+    <h2>At first the basic needs:</h2>
+    <div class="row my-lg-4 my-md-2 my-sm-1">
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Some imports here and there</h5>
+          </div>
+          <img src="/static/images/pass-generator/imports.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/imports.png')">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Some configurations</h5>
+          </div>
+          <img src="/static/images/pass-generator/config.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/config.png')">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define the main frames</h5>
+          </div>
+          <img src="/static/images/pass-generator/define-main-frames.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/define-main-frames.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Starting with frames position</h2>
+    <h5 class="text-secondary">I wanted to have a two swparated frames, with password length selection, create, copy and
+      save buttons on the
+      left frame, and saved data displayed insite the right frame.</h5>
+    <div class="row my-lg-4 my-md-2 my-sm-1">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Creating 'password length' selection frame </h5>
+            <p class="card-text">At a certain moment, I was a little bit confused about how to make the user input the
+              password length, and then I
+              decided to create an "illusion of choice" using radio buttons.</p>
+          </div>
+          <img src="/static/images/pass-generator/length-frame.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/length-frame.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Creating frame with generated password</h5>
+            <p class="card-text">It's important to mark password frame with 'readonly' state, to exclude the possibility
+              of changing password by user.</p>
+          </div>
+          <img src="/static/images/pass-generator/password-frame.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/password-frame.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Creating 'save' and 'hidden' frames</h5>
+            <p class="card-text">Hidden frame will be visible only after click on the 'Save' button and located inside
+              of the Save frame.</p>
+          </div>
+          <img src="/static/images/pass-generator/hidden-save-frame.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/hidden-save-frame.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Creating entries for additional data while saving password</h5>
+            <p class="card-text">I decided to add basic info to saved password as a source this password belong and
+              login corresponded to it.</p>
+          </div>
+          <img src="/static/images/pass-generator/source-login.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/source-login.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>App engine</h2>
+    <h5 class="text-secondary">Here comes the main functions with corresponding to them buttons</h5>
+    <div class="row my-lg-4 my-md-2 my-sm-1">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define pass-generation func</h5>
+            <p class="card-text">The main function can be recognized from the comparison of the scripts.</p>
+          </div>
+          <img src="/static/images/pass-generator/create-func-and-button.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/create-func-and-button.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define func for copying password to clipboard</h5>
+            <p class="card-text">It was the first time I met the 'pyperclip' module, pritty simple and useful.</p>
+          </div>
+          <img src="/static/images/pass-generator/copy-func-and-button.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/copy-func-and-button.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define the func displaying hidden frame on click</h5>
+            <p class="card-text">The main idea was to hide the saving frame and only display it when needed.</p>
+          </div>
+          <img src="/static/images/pass-generator/display-hidden-save-frame.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/display-hidden-save-frame.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define saving func</h5>
+            <p class="card-text">For this desctop app, consitering time-to-time usage and small data weight I've choose
+              the json-file database</p>
+          </div>
+          <img src="/static/images/pass-generator/save-data.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/save-data.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define real-time displaying saved data func</h5>
+            <p class="card-text">Finally the last function reads json file with saved data and displays this data in the
+              right frame in scrollable text-frame, even if data was just now saved, it will be immediately displayed.
+            </p>
+          </div>
+          <img src="/static/images/pass-generator/display-saved-data.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/display-saved-data.png')">
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <h2>Turn script to .exe file</h2>
+    <h5 class="text-secondary">A little bit GPT, pyinstaller documentation and magic, and my executable file was
+      created.</h5>
+    <div class="row my-lg-4 my-md-2 my-sm-1">
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Here it is</h5>
+            <p class="card-text">Finally, the desired executable file is home, among other files.</p>
+          </div>
+          <img src="/static/images/pass-generator/pass-exe-in-folder.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/pass-exe-in-folder.png')">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div id="carouselExamples" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">After 'Save this password' click:</h5>
+                  <p class="card-text">The hidden frames are displayed, are two entries to fill up and save with
+                    generated password</p>
+                </div>
+                <img src="/static/images/pass-generator/password-generator-on-click-save.png"
+                  class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/pass-generator/password-generator-on-click-save.png')">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">After 'Done' click:</h5>
+                  <p class="card-text">Hidden frames are no more displayable till 'Save this password' click again. Data
+                    is immediately displayed on the right side, inside of scrolled-text.</p>
+                </div>
+                <img src="/static/images/pass-generator/password-generator-on-click-done.png"
+                  class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/pass-generator/password-generator-on-click-done.png')">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamples" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExamples" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">The problem i had</h5>
+            <p class="card-text">After creating an executable file and running it for the first time, I noticed that the
+              Windows console was opening in
+              the background of my application. I read many solutions, but none were helpful until I read the .spec file
+              and found the
+              'console=True' parameter. Using this parameter fixed the issue.</p>
+          </div>
+          <img src="/static/images/pass-generator/console-spec.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/pass-generator/console-spec.png')">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="" class="img-fluid" alt="Modal Image" id="modalImage">
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -77,6 +77,12 @@ main {
   color: rgb(0, 60, 255);
 }
 
+.card {
+  margin-top: 5px;
+}
 
+h2 {
+  text-align: center;
+}
 
 
