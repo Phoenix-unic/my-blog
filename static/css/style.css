@@ -81,3 +81,24 @@ main {
 h2 {
   text-align: center;
 }
+
+i {
+  color: aquamarine;
+}
+
+/* EXCHANGE STYLES
+------------------- */
+
+.bg-money {
+  background-image: url(/static/images/exchange/exchange_bg_1920x1080.jpg);
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 75px rgba(64, 3, 99, 0.733) ;
+}
+
+.text-2rem-colored {
+  font-size: 2rem;
+  color: rgba(238, 197, 255, 0.74);
+}
+

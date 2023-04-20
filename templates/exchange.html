@@ -7,28 +7,76 @@ Exchange
 
 
 {% block main %}
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-  <div class="row align-items-center g-lg-5 py-5">
-    <div class="col-md-10 mx-auto col-lg-5">
-      <form class="p-4 p-md-5 border rounded-3 bg-light">
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
-        </div>
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <hr class="my-4">
-        <small class="text-muted">By clicking Sign in, you agree to the terms of use.</small>
-      </form>
+
+<div class="row min-vh-100">
+  <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-lg-4 mt-md-2 p-4 bg-dark bg-opacity-50">
+    <div class="rounded bg-money">
+      <div class="card text-bg-dark bg-black bg-opacity-75">
+        <h1 class="text-center">$Currency exchange$</h1>
+        <form class="p-3" action="{{url_for('exchange')}}" method="POST">
+          <div class="row my-5">
+            <div class="col-md-3 col-sm-12">
+              <label for="amount" class="form-label">AMOUNT</label>
+              <input type="number" name="amount" id="amount" class="form-control text-white bg-dark "
+                value="{{data.get('amount')}}" placeholder="$$$">
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="from" class="form-label">FROM</label>
+              <select name="from" id="from" class="form-select text-white bg-dark">
+                {% if data.get('from_currency') %}
+                <option value="{{data.get('from_currency')}}">{{data.get('from_currency')}}</option>
+                {% endif %}
+                {% for currency in data.get('currencies') %}
+                <option value="{{currency}}">{{currency}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-1 col-sm-12 d-flex align-items-end justify-content-center">
+              <img id="replace-currencies" width="36" height="36" src="https://img.icons8.com/nolan/64/exchange.png" />
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="to" class="form-label">TO</label>
+              <select name="to" id="to" class="form-select text-white bg-dark">
+                {% if data.get('to_currency') %}
+                <option value="{{data.get('to_currency')}}">{{data.get('to_currency')}}</option>
+                {% endif %}
+                {% for currency in data.get('currencies') %}
+                <option value="{{currency}}">{{currency}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="row my-5 d-flex flex-lg-row-reverse">
+            <div class="col-lg-6 col-sm-12 mx-auto mb-4 d-flex justify-content-center justify-content-lg-end">
+              <button type="submit" class="btn btn-primary btn-lg w-50">Convert</button>
+            </div>
+            <div class="col-lg-6 col-sm-12 mx-auto mb-4 d-flex  justify-content-center ">
+              {% if data.get('result') %}
+              <h3>
+                <i class="text-2rem-colored">{{data.get('amount')}} </i>{{data.get('from_currency')}} = <i class="text-2rem-colored">{{data.get('result')}} </i>{{data.get('to_currency')}}
+              </h3>
+              {% endif %}
+            </div>
+
+          </div>
+        </form>
+        <p class="text-center fst-italic">{{data.get('last_update')}}</p>
+
+      </div>
     </div>
+    <hr>
   </div>
 </div>
+<script>
+  const exchangeIcon = document.querySelector('#replace-currencies');
+  const fromSelect = document.querySelector('#from');
+  const toSelect = document.querySelector('#to');
+
+  exchangeIcon.addEventListener('click', () => {
+    const temp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = temp;
+  });
+</script>
+
 {% endblock %}
