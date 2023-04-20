@@ -14,9 +14,9 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/project')
-def project():
-    return render_template('project.html')
+@app.route('/pass-generator')
+def pass_generator():
+    return render_template('pass-generator.html')
 
 
 @app.route('/login')
