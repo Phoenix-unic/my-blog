@@ -46,6 +46,7 @@ header {
 }
 
 header .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.089);
   font-size: 1.95rem;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(162, 7, 252, 0.432);
