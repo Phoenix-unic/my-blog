@@ -51,9 +51,12 @@ header .nav-link:hover {
   box-shadow: 0px 0px 5px rgba(162, 7, 252, 0.432);
 }
 
-.contact {
-  display: inline;
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.329);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(162, 7, 252, 0.432);
 }
+
 
 /* MAIN STYLES
 -------------- */
