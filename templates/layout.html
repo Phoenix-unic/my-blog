@@ -48,23 +48,13 @@
 								<ul class="dropdown-menu" aria-labelledby="projectsDropdown">
 									<li><a class="dropdown-item" href="{{url_for('pass_generator')}}">tkinter
 											Pass-generator</a></li>
-									<li><a class="dropdown-item" href="{{url_for('exchange')}}">Currency exchange</a></li>
+									<li><a class="dropdown-item" href="{{url_for('exchange')}}">Currency exchange</a>
+									</li>
 									<li><a class="dropdown-item" href="#">Project 3</a></li>
 								</ul>
 							</li>
 						</ul>
-						<div>
-							<a href="/login">
-								<button type="button" class="btn btn-outline-light me-2">
-									Login
-								</button>
-							</a>
-							<a href="/sign-up">
-								<button type="button" class="btn btn-outline-primary text-white">
-									Sign-up
-								</button>
-							</a>
-						</div>
+						{% block login %}{% endblock %}
 					</div>
 				</nav>
 			</div>
@@ -116,6 +106,15 @@
 						</li>
 					</ul>
 				</footer>
+			</div>
+		</div>
+	</div>
+	<div class="modal modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img src="" class="img-fluid" alt="Modal Image" id="modalImage">
+				</div>
 			</div>
 		</div>
 	</div>

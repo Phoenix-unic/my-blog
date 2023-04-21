@@ -53,7 +53,8 @@ Exchange
             <div class="col-lg-6 col-sm-12 mx-auto mb-4 d-flex  justify-content-center ">
               {% if data.get('result') %}
               <h3>
-                <i class="text-2rem-colored">{{data.get('amount')}} </i>{{data.get('from_currency')}} = <i class="text-2rem-colored">{{data.get('result')}} </i>{{data.get('to_currency')}}
+                <i class="text-2rem-colored">{{data.get('amount')}} </i>{{data.get('from_currency')}} = <i
+                  class="text-2rem-colored">{{data.get('result')}} </i>{{data.get('to_currency')}}
               </h3>
               {% endif %}
             </div>
@@ -65,18 +66,80 @@ Exchange
       </div>
     </div>
     <hr>
+    <h2>Description</h2>
+    <h5>Simple currency exchanger. It uses the Exchangerate-API to get the latest conversion rates for various
+      currencies against the USD.</h5>
+    <hr>
+    <h2>Starting with basics</h2>
+    <h5 class="text-secondary">Default getting started</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Imports and app definition </h5>
+            <p class="card-text">The 'requests' here to exchange-API acces and JSON data extraction</p>
+          </div>
+          <img src="/static/images/exchange/imports.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/exchange/imports.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>App engine</h2>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Main app.route connected to the form on page</h5>
+            <p class="card-text">Here is data collected from JSON response, calculated and sent to form with addidional
+              data required to memorise user input after reloading the page.</p>
+          </div>
+          <img src="/static/images/exchange/main-func.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/exchange/main-func.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Scripts I used</h2>
+    <h5>Throughout this project, I had a few options to add, and the only way I found to implement them was by using JavaScript</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-12">
+        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Open modals</h5>
+                  <p class="card-text">This script allows user to call modal with sized image on click</p>
+                </div>
+                <img src="/static/images/exchange/script-modal.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/exchange/script-modal.png')">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Replace currencies</h5>
+                  <p class="card-text">This one is used to replace currencies on the corresponding button, without
+                    reloading the whole page.</p>
+                </div>
+                <img src="/static/images/exchange/script-replace.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/exchange/script-replace.png')">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<script>
-  const exchangeIcon = document.querySelector('#replace-currencies');
-  const fromSelect = document.querySelector('#from');
-  const toSelect = document.querySelector('#to');
-
-  exchangeIcon.addEventListener('click', () => {
-    const temp = fromSelect.value;
-    fromSelect.value = toSelect.value;
-    toSelect.value = temp;
-  });
-</script>
 
 {% endblock %}

@@ -22,21 +22,24 @@ def pass_generator():
 
 @app.route('/exchange', methods=['POST', 'GET'])
 def exchange():
+    """Gets acces to exchangerate-api.com with API key, returns default page with 'GET' method,
+        converts and displays calculated value with 'POST' method"""
     response = requests.get(
         url='https://v6.exchangerate-api.com/v6/5e3e41fad6586fa3aa5dcd3f/latest/USD').json()
-    currencies = response.get('conversion_rates')    
+    currencies = response.get('conversion_rates')
     last_update = response.get('time_last_update_utc')
     data = {'currencies': currencies, 'last_update': last_update}
 
     if request.method == 'GET':
 
         return render_template('exchange.html', data=data)
-    
+
     if request.method == 'POST':
         amount = request.form.get('amount')
         from_currency = request.form.get('from')
         to_currency = request.form.get('to')
-        result = round((currencies[to_currency] / currencies[from_currency]) * float(amount), 4)
+        result = round(
+            (currencies[to_currency] / currencies[from_currency]) * float(amount), 4)
         data.setdefault('result', result)
         data.setdefault('amount', amount)
         data.setdefault('from_currency', from_currency)
