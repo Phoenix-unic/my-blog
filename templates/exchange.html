@@ -7,28 +7,139 @@ Exchange
 
 
 {% block main %}
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-lg-5 py-5">
-      <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-light">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+
+<div class="row min-vh-100">
+  <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-lg-4 mt-md-2 p-4 bg-dark bg-opacity-50">
+    <div class="rounded bg-money">
+      <div class="card text-bg-dark bg-black bg-opacity-75">
+        <h1 class="text-center">$Currency exchange$</h1>
+        <form class="p-3" action="{{url_for('exchange')}}" method="POST">
+          <div class="row my-5">
+            <div class="col-md-3 col-sm-12">
+              <label for="amount" class="form-label">AMOUNT</label>
+              <input type="number" name="amount" id="amount" class="form-control text-white bg-dark "
+                value="{{data.get('amount')}}" placeholder="$$$">
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="from" class="form-label">FROM</label>
+              <select name="from" id="from" class="form-select text-white bg-dark">
+                {% if data.get('from_currency') %}
+                <option value="{{data.get('from_currency')}}">{{data.get('from_currency')}}</option>
+                {% endif %}
+                {% for currency in data.get('currencies') %}
+                <option value="{{currency}}">{{currency}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-1 col-sm-12 d-flex align-items-end justify-content-center">
+              <img id="replace-currencies" width="36" height="36" src="https://img.icons8.com/nolan/64/exchange.png" />
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="to" class="form-label">TO</label>
+              <select name="to" id="to" class="form-select text-white bg-dark">
+                {% if data.get('to_currency') %}
+                <option value="{{data.get('to_currency')}}">{{data.get('to_currency')}}</option>
+                {% endif %}
+                {% for currency in data.get('currencies') %}
+                <option value="{{currency}}">{{currency}}</option>
+                {% endfor %}
+              </select>
+            </div>
           </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+          <div class="row my-5 d-flex flex-lg-row-reverse">
+            <div class="col-lg-6 col-sm-12 mx-auto mb-4 d-flex justify-content-center justify-content-lg-end">
+              <button type="submit" class="btn btn-primary btn-lg w-50">Convert</button>
+            </div>
+            <div class="col-lg-6 col-sm-12 mx-auto mb-4 d-flex  justify-content-center ">
+              {% if data.get('result') %}
+              <h3>
+                <i class="text-2rem-colored">{{data.get('amount')}} </i>{{data.get('from_currency')}} = <i
+                  class="text-2rem-colored">{{data.get('result')}} </i>{{data.get('to_currency')}}
+              </h3>
+              {% endif %}
+            </div>
+
           </div>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-          <hr class="my-4">
-          <small class="text-muted">By clicking Sign in, you agree to the terms of use.</small>
         </form>
+        <p class="text-center fst-italic">{{data.get('last_update')}}</p>
+
+      </div>
+    </div>
+    <hr>
+    <h2>Description</h2>
+    <h5>Simple currency exchanger. It uses the Exchangerate-API to get the latest conversion rates for various
+      currencies against the USD.</h5>
+    <hr>
+    <h2>Starting with basics</h2>
+    <h5 class="text-secondary">Default getting started</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Imports and app definition </h5>
+            <p class="card-text">The 'requests' here to exchange-API acces and JSON data extraction</p>
+          </div>
+          <img src="/static/images/exchange/imports.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/exchange/imports.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>App engine</h2>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Main app.route connected to the form on page</h5>
+            <p class="card-text">Here is data collected from JSON response, calculated and sent to form with addidional
+              data required to memorise user input after reloading the page.</p>
+          </div>
+          <img src="/static/images/exchange/main-func.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/exchange/main-func.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Scripts I used</h2>
+    <h5 class="text-muted">Throughout this project, I had a few options to add, and the only way I found to implement them was by using JavaScript</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-12">
+        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Open modals</h5>
+                  <p class="card-text">This script allows user to call modal with sized image on click</p>
+                </div>
+                <img src="/static/images/exchange/script-modal.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/exchange/script-modal.png')">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-bg-dark mx-auto w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Replace currencies</h5>
+                  <p class="card-text">This one is used to replace currencies on the corresponding button, without
+                    reloading the whole page.</p>
+                </div>
+                <img src="/static/images/exchange/script-replace.png" class="card-img-bottom img-fluid"
+                  onclick="openModal('/static/images/exchange/script-replace.png')">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
 {% endblock %}
