@@ -1,0 +1,196 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Calculator
+{% endblock %}
+
+{% block active_projects %}
+active-link
+{% endblock %}
+
+{% block main %}
+
+<div class="row">
+  <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-lg-4 mt-md-2 p-3 bg-dark bg-opacity-50 ">
+    <div class="rounded bg-numbers">
+      <div class="row flex-lg-row-reverse bg-black bg-opacity-50 rounded align-items-center g-3 p-lg-5 p-md-3 p-sm-1">
+        <div class="col-lg-4 col-md-4 col-sm-12 mx-auto">
+          <img src="/static/images/calculator/calculator-main-screen.png" class="d-block mx-auto img-fluid rounded"
+            alt="calculator" height="500" loading="lazy">
+        </div>
+        <div class="text-bg-dark bg-opacity-100 rounded col-lg-8  col-md-8 col-sm-12 mx-auto">
+          <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Calcilator with PyQt6</h1>
+          <p class="lead">Another GUI project, this time a simple calculator with some additional functions,
+            created with <a href="https://build-system.fman.io/qt-designer-download">QtDesigner</a>, <a
+              href="https://www.python.org/">Python</a>, and
+            the <a href="https://pypi.org/project/PyQt6/">PyQt6</a> library. Before I started it, it didn't seem
+            challenging at all, but during the process, I realized that some
+            tasks were very interesting and required some additional skills.
+          <p>If You are interested, here is the <a href="https://github.com/Phoenix-unic/calculator" target="blank">link
+              to GitHub repo</a> with this project</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Introduction</h2>
+    <h5>I'm going to show you the simple calculator python script, and than you'll see the difference with GUI
+    </h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Default script</h5>
+            <p class="card-text">Here is a main function that, in one very simple step with <i>eval()</i>, returns the
+              result and handles three types of errors. The user is able to infinite enter an expression to
+              calculate following rules.
+            </p>
+          </div>
+          <img src="/static/images/calculator/calculator-script.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/calculator-script.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>At first the basic needs:</h2>
+    <h5>Basic needs were covered with QtDesigner. You can just put together labels, buttons, and
+      any element you want,
+      then compile it to a '<i>.ui</i>' file.
+      After that, you can transform it to a '<i>.py</i>' file with a GUI interface usingPyQt.</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100 p-4">
+          <div class="card-body">
+            <h5 class="card-title">How it looks like</h5>
+          </div>
+          <img src="/static/images/calculator/qt-designer.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/qt-designer.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Basic setup</h2>
+    <h5>Full basic setup you can find on <a href="https://github.com/Phoenix-unic/calculator"
+        target="_blank">GitHub</a>. Because there is a lot of repetitive code, with button definitions, etc, here are
+      some button examples, and all of them are almost the same.</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">One of the buttons description</h5>
+            <p class="card-text">The descriptions are pretty much the same. Here is just an example.</p>
+          </div>
+          <img src="/static/images/calculator/one-button-setup.png" class="scalable-image card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/one-button-setup.png')">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Some configurations</h5>
+          </div>
+          <img src="/static/images/calculator/setup-demo.png" class="scalable-image card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/setup-demo.png')">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 mx-sm-auto">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Retranslate definition</h5>
+          </div>
+          <img src="/static/images/calculator/retranslate-demo.png" class="scalable-image card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/retranslate-demo.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>App engine</h2>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Define button click handler func</h5>
+            <p class="card-text">The main function is triggered when any button is clicked, does first validation and
+              calls certain function, depending on button value</p>
+          </div>
+          <img src="/static/images/calculator/button-click-handler.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/button-click-handler.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Calculate func</h5>
+            <p class="card-text">Triggered when '=' was clicked. As you can see, no more 'NameError' exception handle,
+              coz of user input is limited now</p>
+          </div>
+          <img src="/static/images/calculator/calculate.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/calculate.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Other functions</h2>
+    <h5>Funcitons responsible for more complex actions, with additional validation</h5>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Digit input</h5>
+            <p class="card-text">Triggered when a digit 0-9 was clicked</p>
+          </div>
+          <img src="/static/images/calculator/digit-input.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/digit-input.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Operation input</h5>
+            <p class="card-text">Triggered when an operation (+, -, *, /, **) was clicked</p>
+          </div>
+          <img src="/static/images/calculator/operation-input.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/operation-input.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Point input</h5>
+            <p class="card-text">Triggered when a point was clicked. I decided to implement a separate function for
+              '.', because of specific cases point input.</p>
+          </div>
+          <img src="/static/images/calculator/point-input.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/point-input.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Backspace</h5>
+            <p class="card-text">Triggered when a '←' was clicked</p>
+          </div>
+          <img src="/static/images/calculator/backspace.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/backspace.png')">
+        </div>
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Custom functions</h5>
+            <p class="card-text">Triggered when one of the custom functions was clicked</p>
+          </div>
+          <img src="/static/images/calculator/custom-funcs.png" class="card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/custom-funcs.png')">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>Run app</h2>
+    <div class="row my-5 my-md-2">
+      <div class="col-lg-10">
+        <div class="card text-bg-dark w-100">
+          <div class="card-body">
+            <h5 class="card-title">Run</h5>
+            <p class="card-text">Setup for run the aplication, btw it was also created with QtDesigner <i>'.ui'</i>
+              model, so nothing was
+              changed here</p>
+          </div>
+          <img src="/static/images/calculator/run.png" class="w-50 card-img-bottom img-fluid"
+            onclick="openModal('/static/images/calculator/run.png')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

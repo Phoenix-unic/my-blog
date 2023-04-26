@@ -1,4 +1,4 @@
-// OPEN MODAL SCRIPT
+// // OPEN MODAL SCRIPT
 function openModal(imageSrc) {
   // Update the modal image source and show the modal
   var modalImage = document.getElementById("modalImage");
@@ -6,7 +6,7 @@ function openModal(imageSrc) {
   $("#exampleModal").modal("show");
 }
 
-// REPLACE CURRENCIES ON CLICK 
+// REPLACE CURRENCIES ON CLICK
 const exchangeIcon = document.querySelector("#replace-currencies");
 const fromSelect = document.querySelector("#from");
 const toSelect = document.querySelector("#to");

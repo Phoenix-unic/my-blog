@@ -20,6 +20,11 @@ def pass_generator():
     return render_template('pass-generator.html')
 
 
+@app.route('/calculator')
+def calculator():
+    return render_template('calculator.html')
+
+
 @app.route('/exchange', methods=['POST', 'GET'])
 def exchange():
     """Gets acces to exchangerate-api.com with API key, returns default page with 'GET' method,
